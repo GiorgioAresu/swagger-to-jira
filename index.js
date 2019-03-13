@@ -15,11 +15,12 @@ const formatter = (route) => {
 };
 
 const doc = yaml.safeLoad(fs.readFileSync(swagger, 'utf8'));
-const groups = doc.tags.map(x => x.name).reduce((acc, curr) => ({ ...acc, [curr]: [] }), {});
+const groups = {};
 Object.keys(doc.paths).forEach(path => 
   Object.keys(doc.paths[path]).forEach(method => {
     const obj = doc.paths[path][method];
-    obj.tags.forEach(tag => groups[tag].push({method, path, operationId: obj.operationId, summary: obj.summary}));
+    const res = {method, path, operationId: obj.operationId, summary: obj.summary};
+    obj.tags.forEach(tag => groups[tag] ? groups[tag].push(res) : groups[tag] = [res]);
   })
 );
 const result = Object.keys(groups).map(group => [`h5. ${group}`, groups[group].map(formatter)]);
