@@ -1,0 +1,28 @@
+{
+  "name": "swagger-to-jira",
+  "version": "1.0.0",
+  "description": "Convert Swagger definitions file to an ascii-art checklist in jira",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiorgioAresu/swagger-to-jira.git"
+  },
+  "author": "Giorgio Aresu <giorgioaresu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GiorgioAresu/swagger-to-jira/issues"
+  },
+  "homepage": "https://github.com/GiorgioAresu/swagger-to-jira#readme",
+  "keywords": [
+    "jira",
+    "swagger"
+  ],
+  "dependencies": {
+    "env-var": "^3.5.0",
+    "js-yaml": "^3.12.2"
+  }
+}
